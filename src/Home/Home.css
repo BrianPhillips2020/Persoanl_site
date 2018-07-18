@@ -1,0 +1,13 @@
+.topsplit{
+    display: flex;
+}
+
+.navbar{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+.title{
+    text-align: center;
+}
