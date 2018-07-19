@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Home.css';
-import { ProfileCard } from '../ProfileCard/ProfileCard.js'
+
 
 let resizeTimer;
+let backgroundurl = 'https://i.imgur.com/OT8AGYH.png';
 
 export class Home extends Component {
     constructor(props) {
@@ -11,22 +12,20 @@ export class Home extends Component {
         this.width = window.innerWidth;
         this.height = window.innerHeight;
         this.cardsplit = .015;
+        this.navsplit = 0.9;
     }
 
 
     render() {
         return (
-            <div style={{ height: '100vh' }}>
-                <div className='navbar'>
-                    <div style={{ padding: '10px' }}>Home</div>
-                    <div style={{ padding: '10px' }}>Contact</div>
-                    <div style={{ padding: '10px' }}>Resume</div>
+            <div style={{}}>
+                <div className='navbar' style={{ height: this.height * (1 - this.navsplit) }}>
+                    <div style={{ paddingLeft: '10px', paddingRight: '10px', paddingTop: '30px' }}>Home</div>
+                    <div style={{ paddingTop: '30px'}}>Contact</div>
+                    <div style={{ paddingLeft: '10px', paddingTop: '30px' }}>Resume</div>
                 </div>
-                <div>
-                    <h1 className='title'>Brian Phillips</h1>
-                    <div style={{display: 'flex'}}>
-                        < ProfileCard />
-                    </div>
+                <div id='title' className='background' style={{ height: this.height * this.navsplit}}>
+                    <div className='title'>Brian Phillips</div>
                 </div>
             </div>
         )
@@ -36,7 +35,7 @@ export class Home extends Component {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             this.width = window.innerWidth;
-            this.height = window.innerHeight * .9875;
+            this.height = window.innerHeight;
         }, 100);
     }
 
